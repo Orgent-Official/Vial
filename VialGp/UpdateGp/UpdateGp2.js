@@ -558,91 +558,60 @@ function makeop()
 
 function mygpp()
 {
-	var option = {
-            title: {
-                text: '我购买的股票'
-            },
-                xAxis: {
-                    interval: 0,
-                    data: [buycheckname(localStorage.sel1),buycheckname(localStorage.sel2),buycheckname(localStorage.sel3)],
-                    axisLabel: {
-      interval: 0,
-      rotate: 0, 
-      margin: 20,
-      fontSize: 12,
-      formatter: function(value) {
-        if (value.length > 15) {
-          return value.substring(0, 15) + '...'; 
-        }
-        return value;
-      }
-    }
-                },
-                yAxis: {},
-                series: [
-                    {
-                        type: 'bar',
-                        data: [localStorage.buy1,localStorage.buy2,localStorage.buy3]
-                    },
-                    {
-                        type: 'bar',
-                        data: [(buychecknowprice(localStorage.sel1)/localStorage.p1*1.000*localStorage.buy1),(buychecknowprice(localStorage.sel2)/localStorage.p2*1.000*localStorage.buy2),(buychecknowprice(localStorage.sel3)/localStorage.p3*1.000*localStorage.buy3)]
-                    }
-                ]  
-        };
-    return option;
-}
+    // 统一用和卖出函数一样的计算方式
+    function toFixed2(num){return Number(Number(num).toFixed(2))}
 
-function btsheet()
-{
+    // 计算第1个股票的当前市值
+    const buy1 = toFixed2(localStorage.buy1);
+    const p1 = toFixed2(localStorage.p1);
+    const nowPrice1 = toFixed2(buychecknowprice(localStorage.sel1));
+    const value1 = p1 > 0 ? toFixed2((buy1 / p1) * nowPrice1) : 0;
+
+    // 计算第2个股票的当前市值
+    const buy2 = toFixed2(localStorage.buy2);
+    const p2 = toFixed2(localStorage.p2);
+    const nowPrice2 = toFixed2(buychecknowprice(localStorage.sel2));
+    const value2 = p2 > 0 ? toFixed2((buy2 / p2) * nowPrice2) : 0;
+
+    // 计算第3个股票的当前市值
+    const buy3 = toFixed2(localStorage.buy3);
+    const p3 = toFixed2(localStorage.p3);
+    const nowPrice3 = toFixed2(buychecknowprice(localStorage.sel3));
+    const value3 = p3 > 0 ? toFixed2((buy3 / p3) * nowPrice3) : 0;
+
     var option = {
-            title: {
-                text: '市场份额'
-            },
-        tooltip: {
-            trigger: 'item'
+        title: {
+            text: '我购买的股票'
         },
-        legend: {
-            top: '8%',
-            left: 'center'
+        xAxis: {
+            interval: 0,
+            data: [buycheckname(localStorage.sel1),buycheckname(localStorage.sel2),buycheckname(localStorage.sel3)],
+            axisLabel: {
+                interval: 0,
+                rotate: 0, 
+                margin: 20,
+                fontSize: 12,
+                formatter: function(value) {
+                    if (value.length > 15) {
+                        return value.substring(0, 15) + '...'; 
+                    }
+                    return value;
+                }
+            }
         },
+        yAxis: {},
         series: [
             {
-            name: '市场份额',
-            type: 'pie',
-            radius: ['40%', '70%'],
-            avoidLabelOverlap: false,
-            itemStyle: {
-                borderRadius: 10,
-                borderColor: '#fff',
-                borderWidth: 2
+                type: 'bar',
+                data: [buy1, buy2, buy3],
+                name: '买入金额'
             },
-            label: {
-                show: false,
-                position: 'center'
-            },
-            emphasis: {
-                label: {
-                show: true,
-                fontSize: '40',
-                fontWeight: 'bold'
-                }
-            },
-            labelLine: {
-                show: false
-            },
-            data: [
-                { value: utw, name: 'Utw' },
-                { value: vial, name: 'Vial' },
-                { value: cwmm, name: 'CWMM' },
-                { value: cuo, name: 'CuO' },
-                { value: hsf, name: 'HSF' },
-                { value: ecc, name: 'ECC' },
-                { value: lemon, name: 'Lemon' },
-                { value: awm, name: 'AWM' }
-            ]
+            {
+                type: 'bar',
+                data: [value1, value2, value3],
+                name: '当前市值'
             }
-        ]
+        ]  
     };
     return option;
 }
