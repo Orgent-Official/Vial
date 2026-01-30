@@ -1,5 +1,3 @@
-这是updategp2.js：var news="aaa";
-
 var llemon=900,lemon=900,bzlemon=0; // Lemon
 var lvial=1100,vial=1100,bzvial=0; // Vial
 var lutw=1500,utw=1500,bzutw=0; // Utw
