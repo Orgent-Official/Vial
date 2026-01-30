@@ -1,4 +1,4 @@
-var news="aaa";
+这是updategp2.js：var news="aaa";
 
 var llemon=900,lemon=900,bzlemon=0; // Lemon
 var lvial=1100,vial=1100,bzvial=0; // Vial
@@ -168,161 +168,161 @@ function update_all() {
     }
 
     // 更新lemon
+    llemon = lemon;
     if (bzlemon === 1) {
         const change = getRandomChange();
         lemon = Number(lemon) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(lemon) + (Math.random() > 0.5 ? change : -change);
-        lemon = Math.max(0, tempValue); 
+        lemon = Math.max(0, tempValue); // 确保不小于0
     }
-    llemon = lemon;
 
     // 更新vial
+    lvial = vial;
     if (bzvial === 1) {
         const change = getRandomChange();
         vial = Number(vial) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(vial) + (Math.random() > 0.5 ? change : -change);
-        vial = Math.max(0, tempValue); 
+        vial = Math.max(0, tempValue); // 确保不小于0
     }
-    lvial = vial;
 
     // 更新utw
+    lutw = utw;
     if (bzutw === 1) {
         const change = getRandomChange();
         utw = Number(utw) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(utw) + (Math.random() > 0.5 ? change : -change);
-        utw = Math.max(0, tempValue); 
+        utw = Math.max(0, tempValue); // 确保不小于0
     }
-    lutw = utw;
 
     // 更新cwmm
+    lcwmm = cwmm;
     if (bzcwmm === 1) {
         const change = getRandomChange();
         cwmm = Number(cwmm) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(cwmm) + (Math.random() > 0.5 ? change : -change);
-        cwmm = Math.max(0, tempValue); 
+        cwmm = Math.max(0, tempValue); // 确保不小于0
     }
-    lcwmm = cwmm;
 
     // 更新uptc
+    luptc = uptc;
     if (bzuptc === 1) {
         const change = getRandomChange();
         uptc = Number(uptc) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(uptc) + (Math.random() > 0.5 ? change : -change);
-        uptc = Math.max(0, tempValue); 
+        uptc = Math.max(0, tempValue); // 确保不小于0
     }
-    luptc = uptc;
 
     // 更新fivu
+    lfivu = fivu;
     if (bzfivu === 1) {
         const change = getRandomChange();
         fivu = Number(fivu) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(fivu) + (Math.random() > 0.5 ? change : -change);
-        fivu = Math.max(0, tempValue); 
+        fivu = Math.max(0, tempValue); // 确保不小于0
     }
-    lfivu = fivu;
 
     // 更新ecc
+    lecc = ecc;
     if (bzecc === 1) {
         const change = getRandomChange();
         ecc = Number(ecc) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(ecc) + (Math.random() > 0.5 ? change : -change);
-        ecc = Math.max(0, tempValue); 
+        ecc = Math.max(0, tempValue); // 确保不小于0
     }
-    lecc = ecc;
 
     // 更新awm
+    lawm = awm;
     if (bzawm === 1) {
         const change = getRandomChange();
         awm = Number(awm) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(awm) + (Math.random() > 0.5 ? change : -change);
-        awm = Math.max(0, tempValue); 
+        awm = Math.max(0, tempValue); // 确保不小于0
     }
-    lawm = awm;
 
     // 更新 HSF
+    lhsf = hsf;
     if (bzhsf === 1) {
         const change = getRandomChange();
         hsf = Number(hsf) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(hsf) + (Math.random() > 0.5 ? change : -change);
-        hsf = Math.max(0, tempValue); 
+        hsf = Math.max(0, tempValue); // 确保不小于0
     }
-    lhsf = hsf;
 
 	// 更新 UVS
+	luvs = uvs;
     if (bzuvs === 1) {
         const change = getRandomChange();
         uvs = Number(uvs) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(uvs) + (Math.random() > 0.5 ? change : -change);
-        uvs = Math.max(0, tempValue); 
+        uvs = Math.max(0, tempValue); // 确保不小于0
     }
-	luvs = uvs;
 
     // 更新 ubn
+    lubn = ubn;
     if (bzubn === 1) {
         const change = getRandomChange();
         ubn = Number(ubn) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(ubn) + (Math.random() > 0.5 ? change : -change);
-        ubn = Math.max(0, tempValue); 
+        ubn = Math.max(0, tempValue); // 确保不小于0
     }
-    lubn = ubn;
 
     // 更新 forest
+    lforest = forest;
     if (bzforest === 1) {
         const change = getRandomChange();
         forest = Number(forest) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(forest) + (Math.random() > 0.5 ? change : -change);
-        forest = Math.max(0, tempValue); 
+        forest = Math.max(0, tempValue); // 确保不小于0
     }
-    lforest = forest;
 
     // 更新 cuo
+    lcuo = cuo;
     if (bzcuo === 1) {
         const change = getRandomChange();
         cuo = Number(cuo) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(cuo) + (Math.random() > 0.5 ? change : -change);
-        cuo = Math.max(0, tempValue); 
+        cuo = Math.max(0, tempValue); // 确保不小于0
     }
-    lcuo = cuo;
 
     // 更新 ogn
+    logn = ogn;
     if (bzogn === 1) {
         const change = getRandomChange();
         ogn = Number(ogn) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(ogn) + (Math.random() > 0.5 ? change : -change);
-        ogn = Math.max(0, tempValue); 
+        ogn = Math.max(0, tempValue); // 确保不小于0
     }
-    logn = ogn;
-
     save_data();
     updateChart();
+    
 }
 
 function buychecknowprice(id)
@@ -558,60 +558,91 @@ function makeop()
 
 function mygpp()
 {
-    // 统一用和卖出函数一样的计算方式
-    function toFixed2(num){return Number(Number(num).toFixed(2))}
-
-    // 计算第1个股票的当前市值
-    const buy1 = toFixed2(localStorage.buy1);
-    const p1 = toFixed2(localStorage.p1);
-    const nowPrice1 = toFixed2(buychecknowprice(localStorage.sel1));
-    const value1 = p1 > 0 ? toFixed2((buy1 / p1) * nowPrice1) : 0;
-
-    // 计算第2个股票的当前市值
-    const buy2 = toFixed2(localStorage.buy2);
-    const p2 = toFixed2(localStorage.p2);
-    const nowPrice2 = toFixed2(buychecknowprice(localStorage.sel2));
-    const value2 = p2 > 0 ? toFixed2((buy2 / p2) * nowPrice2) : 0;
-
-    // 计算第3个股票的当前市值
-    const buy3 = toFixed2(localStorage.buy3);
-    const p3 = toFixed2(localStorage.p3);
-    const nowPrice3 = toFixed2(buychecknowprice(localStorage.sel3));
-    const value3 = p3 > 0 ? toFixed2((buy3 / p3) * nowPrice3) : 0;
-
-    var option = {
-        title: {
-            text: '我购买的股票'
-        },
-        xAxis: {
-            interval: 0,
-            data: [buycheckname(localStorage.sel1),buycheckname(localStorage.sel2),buycheckname(localStorage.sel3)],
-            axisLabel: {
-                interval: 0,
-                rotate: 0, 
-                margin: 20,
-                fontSize: 12,
-                formatter: function(value) {
-                    if (value.length > 15) {
-                        return value.substring(0, 15) + '...'; 
+	var option = {
+            title: {
+                text: '我购买的股票'
+            },
+                xAxis: {
+                    interval: 0,
+                    data: [buycheckname(localStorage.sel1),buycheckname(localStorage.sel2),buycheckname(localStorage.sel3)],
+                    axisLabel: {
+      interval: 0,
+      rotate: 0, 
+      margin: 20,
+      fontSize: 12,
+      formatter: function(value) {
+        if (value.length > 15) {
+          return value.substring(0, 15) + '...'; 
+        }
+        return value;
+      }
+    }
+                },
+                yAxis: {},
+                series: [
+                    {
+                        type: 'bar',
+                        data: [localStorage.buy1,localStorage.buy2,localStorage.buy3]
+                    },
+                    {
+                        type: 'bar',
+                        data: [(buychecknowprice(localStorage.sel1)/localStorage.p1*1.000*localStorage.buy1),(buychecknowprice(localStorage.sel2)/localStorage.p2*1.000*localStorage.buy2),(buychecknowprice(localStorage.sel3)/localStorage.p3*1.000*localStorage.buy3)]
                     }
-                    return value;
-                }
-            }
+                ]  
+        };
+    return option;
+}
+
+function btsheet()
+{
+    var option = {
+            title: {
+                text: '市场份额'
+            },
+        tooltip: {
+            trigger: 'item'
         },
-        yAxis: {},
+        legend: {
+            top: '8%',
+            left: 'center'
+        },
         series: [
             {
-                type: 'bar',
-                data: [buy1, buy2, buy3],
-                name: '买入金额'
+            name: '市场份额',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
             },
-            {
-                type: 'bar',
-                data: [value1, value2, value3],
-                name: '当前市值'
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                show: true,
+                fontSize: '40',
+                fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                { value: utw, name: 'Utw' },
+                { value: vial, name: 'Vial' },
+                { value: cwmm, name: 'CWMM' },
+                { value: cuo, name: 'CuO' },
+                { value: hsf, name: 'HSF' },
+                { value: ecc, name: 'ECC' },
+                { value: lemon, name: 'Lemon' },
+                { value: awm, name: 'AWM' }
+            ]
             }
-        ]  
+        ]
     };
     return option;
 }
