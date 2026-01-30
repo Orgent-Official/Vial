@@ -112,97 +112,88 @@
     }
 
     function Sell() {
-    let hasSold = false;
-    // 第1个股票
-    if (document.getElementById("one").checked) {
-        const sel1 = localStorage.sel1;
-        const buy1 = Number(localStorage.buy1);
-        const costPrice1 = Number(localStorage.p1);
-        if (buy1 <= 0 || costPrice1 <= 0) {
-            alert("无法卖出第1个股票（未持仓或持仓信息异常）。");
-            return;
+            let hasSold = false;
+            if (document.getElementById("one").checked) {
+                const sel1 = localStorage.sel1;
+                const buy1 = Number(localStorage.buy1);
+                if (buy1 <= 0) {
+                    alert("无法卖出第1个股票。");
+                    return;
+                }
+                const nowPrice = buychecknowprice(sel1);
+                const pastPrice = buycheckpastprice(sel1);
+                const nowValue = (buy1 * nowPrice / localStorage.p1).toFixed(2);
+                const profit = (nowValue - buy1).toFixed(2); // 盈利/亏损
+                const confirmMsg = `确定卖出股票[${buycheckname(sel1)}]吗？\n` +
+                                  `购买金额：${buy1} Vial币\n` +
+                                  `当前市值：${nowValue} Vial币\n` +
+                                  `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Vial币`;
+                if (!confirm(confirmMsg)) return;
+                localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
+                localStorage.sel1 = 0;
+                localStorage.buy1 = 0;
+                localStorage.p1=0;
+                localStorage.d1=0;
+                hasSold = true;
+            }
+            if (document.getElementById("two").checked) {
+                const sel2 = localStorage.sel2;
+                const buy2 = Number(localStorage.buy2);
+                if (buy2 <= 0) {
+                    alert("无法卖出第2个股票。");
+                    return;
+                }
+                const nowPrice = buychecknowprice(sel2);
+                const pastPrice = buycheckpastprice(sel2);
+                const nowValue = (buy2 * nowPrice / localStorage.p2).toFixed(2);
+                const profit = (nowValue - buy2).toFixed(2);
+
+                const confirmMsg = `确定卖出股票[${buycheckname(sel2)}]吗？\n` +
+                                  `购买金额：${buy2} Vial币\n` +
+                                  `当前市值：${nowValue} Vial币\n` +
+                                  `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Vial币`;
+                if (!confirm(confirmMsg)) return;
+
+                localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
+                localStorage.sel2 = 0;
+                localStorage.buy2 = 0;
+                localStorage.p2=0;
+                localStorage.d2=0;
+                hasSold = true;
+            }
+            if (document.getElementById("three").checked)
+            {
+                const sel3 = localStorage.sel3;
+                const buy3 = Number(localStorage.buy3);
+                if (buy3 <= 0) {
+                    alert("无法卖出第3个股票。");
+                    return;
+                }
+                const nowPrice = buychecknowprice(sel3);
+                const pastPrice = buycheckpastprice(sel3);
+                const nowValue = (buy3 * nowPrice / localStorage.p3).toFixed(2);
+                const profit = (nowValue - buy3).toFixed(2);
+
+                const confirmMsg = `确定卖出股票 [${buycheckname(sel3)}] 吗？\n` +
+                                  `购买金额：${buy3} Vial币\n` +
+                                  `当前市值：${nowValue} Vial币\n` +
+                                  `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Vial币`;
+                if (!confirm(confirmMsg)) return;
+
+                localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
+                localStorage.sel3 = 0;
+                localStorage.buy3 = 0;
+                localStorage.p3=0;
+                localStorage.d3=0;
+                hasSold = true;
+            }
+            if (!hasSold)
+            {
+                alert("请先选中要卖出的股票。");
+                return;
+            }
+            window.location.href = "index.html";
         }
-        const nowPrice = buychecknowprice(sel1);
-        const holdNum = (buy1 / costPrice1).toFixed(4); // 持仓数量
-        const nowValue = (holdNum * nowPrice).toFixed(2); // 真实市值
-        const profit = (nowValue - buy1).toFixed(2);
-        const confirmMsg = `确定卖出股票[${buycheckname(sel1)}]吗？\n` +
-                          `购买金额：${buy1} Vial币\n` +
-                          `持仓数量：${holdNum}\n` +
-                          `成本价：${costPrice1} Vial币\n` +
-                          `当前价：${nowPrice} Vial币\n` +
-                          `当前市值：${nowValue} Vial币\n` +
-                          `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Vial币`;
-        if (!confirm(confirmMsg)) return;
-        localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
-        localStorage.sel1 = 0;
-        localStorage.buy1 = 0;
-        localStorage.p1 = 0;
-        localStorage.d1 = 0;
-        hasSold = true;
-    }
-    // 第2个股票
-    if (document.getElementById("two").checked) {
-        const sel2 = localStorage.sel2;
-        const buy2 = Number(localStorage.buy2);
-        const costPrice2 = Number(localStorage.p2);
-        if (buy2 <= 0 || costPrice2 <= 0) {
-            alert("无法卖出第2个股票（未持仓或持仓信息异常）。");
-            return;
-        }
-        const nowPrice = buychecknowprice(sel2);
-        const holdNum = (buy2 / costPrice2).toFixed(4);
-        const nowValue = (holdNum * nowPrice).toFixed(2);
-        const profit = (nowValue - buy2).toFixed(2);
-        const confirmMsg = `确定卖出股票[${buycheckname(sel2)}]吗？\n` +
-                          `购买金额：${buy2} Vial币\n` +
-                          `持仓数量：${holdNum}\n` +
-                          `成本价：${costPrice2} Vial币\n` +
-                          `当前价：${nowPrice} Vial币\n` +
-                          `当前市值：${nowValue} Vial币\n` +
-                          `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Vial币`;
-        if (!confirm(confirmMsg)) return;
-        localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
-        localStorage.sel2 = 0;
-        localStorage.buy2 = 0;
-        localStorage.p2 = 0;
-        localStorage.d2 = 0;
-        hasSold = true;
-    }
-    // 第3个股票
-    if (document.getElementById("three").checked) {
-        const sel3 = localStorage.sel3;
-        const buy3 = Number(localStorage.buy3);
-        const costPrice3 = Number(localStorage.p3);
-        if (buy3 <= 0 || costPrice3 <= 0) {
-            alert("无法卖出第3个股票（未持仓或持仓信息异常）。");
-            return;
-        }
-        const nowPrice = buychecknowprice(sel3);
-        const holdNum = (buy3 / costPrice3).toFixed(4);
-        const nowValue = (holdNum * nowPrice).toFixed(2);
-        const profit = (nowValue - buy3).toFixed(2);
-        const confirmMsg = `确定卖出股票[${buycheckname(sel3)}]吗？\n` +
-                          `购买金额：${buy3} Vial币\n` +
-                          `持仓数量：${holdNum}\n` +
-                          `成本价：${costPrice3} Vial币\n` +
-                          `当前价：${nowPrice} Vial币\n` +
-                          `当前市值：${nowValue} Vial币\n` +
-                          `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Vial币`;
-        if (!confirm(confirmMsg)) return;
-        localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
-        localStorage.sel3 = 0;
-        localStorage.buy3 = 0;
-        localStorage.p3 = 0;
-        localStorage.d3 = 0;
-        hasSold = true;
-    }
-    if (!hasSold) {
-        alert("请先选中要卖出的股票。");
-        return;
-    }
-    window.location.href = "index.html";
-}
 </script>
 </center>
 <p>&nbsp;</p>
