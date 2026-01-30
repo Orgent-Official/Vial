@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="NdcLogo4848.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vial 网站</title>
+    <link rel="stylesheet" type="text/css" href="../StyleFiles/homepage.css">
+    <script type="text/javascript" src="../VialGp/UpdateGp/UpdateGp2.js"></script>
+    <script type="text/javascript" src="../MainScripts/InitGpWn.js"></script>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Vial 网站</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="LabSv.html">产品</a></li>
+                <li><a href="Sfapp.html">软件</a></li>
+                <li><a href="../VialGp/index.html">虚拟股票</a></li>
+                <li><a href="About.html">关于</a></li>
+                <li><a href="Vialac.html">我的 Vial ID</a></li>
+            </ul>
+        </div>
+    </nav>
+</head>
+<body>
+    &nbsp;
+    <section class="hero">
+            <h1 id="h1h1"></h1>
+            <p>欢迎来到你的 Vial ID 管理中心。</p >
+        </section>
+        <section class="cards">
+            <div class="card">
+                <h3>更改你的 Vial ID 名</h3>
+                <p>对你的账号名字不满意？来这里更改。</p >
+                <div class="form-control">
+            <input type="value" required="" id="code">
+            <label>
+                <span style="transition-delay:0ms">新</span><span style="transition-delay:50ms">用</span><span style="transition-delay:100ms">户</span><span style="transition-delay:150ms">名</span>
+            </label>
+        </div><center><button class="btn" onclick="javascript:Check(true)">更改</button></center>
+            </div>
+            <div class="card">
+                <h3>我的虚拟股票</h3>
+                <p id="gplb"></p>
+                <p id="gp1">你没有购买第一个股票。</p>
+                <p id="gp2">你没有购买第二个股票。</p>
+                <p id="gp3">你没有购买第三个股票。</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <center><button class="btn" onclick="javascript:window.location.href='../VialGp/index.html';">去看看</button></center>
+            </div>
+            <div class="card">
+                <h3>充值 Vial币</h3>
+                <p>没有Vial币了？来这里充值一些。</p >
+                <div class="form-control">
+            <input type="value" required="" id="code1">
+            <label>
+                <span style="transition-delay:0ms">兑</span><span style="transition-delay:50ms">换</span><span style="transition-delay:100ms">码</span>
+            </label>
+        </div><center><button class="btn" onclick="javascript:Checkm(true)">充值</button></center>
+            </div>
+        </section>
+    </div>
+    <p id="news" style="display: none"></p>
+</body>
+</html>
