@@ -168,161 +168,161 @@ function update_all() {
     }
 
     // 更新lemon
-    llemon = lemon;
     if (bzlemon === 1) {
         const change = getRandomChange();
         lemon = Number(lemon) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(lemon) + (Math.random() > 0.5 ? change : -change);
-        lemon = Math.max(0, tempValue); // 确保不小于0
+        lemon = Math.max(0, tempValue); 
     }
+    llemon = lemon;
 
     // 更新vial
-    lvial = vial;
     if (bzvial === 1) {
         const change = getRandomChange();
         vial = Number(vial) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(vial) + (Math.random() > 0.5 ? change : -change);
-        vial = Math.max(0, tempValue); // 确保不小于0
+        vial = Math.max(0, tempValue); 
     }
+    lvial = vial;
 
     // 更新utw
-    lutw = utw;
     if (bzutw === 1) {
         const change = getRandomChange();
         utw = Number(utw) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(utw) + (Math.random() > 0.5 ? change : -change);
-        utw = Math.max(0, tempValue); // 确保不小于0
+        utw = Math.max(0, tempValue); 
     }
+    lutw = utw;
 
     // 更新cwmm
-    lcwmm = cwmm;
     if (bzcwmm === 1) {
         const change = getRandomChange();
         cwmm = Number(cwmm) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(cwmm) + (Math.random() > 0.5 ? change : -change);
-        cwmm = Math.max(0, tempValue); // 确保不小于0
+        cwmm = Math.max(0, tempValue); 
     }
+    lcwmm = cwmm;
 
     // 更新uptc
-    luptc = uptc;
     if (bzuptc === 1) {
         const change = getRandomChange();
         uptc = Number(uptc) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(uptc) + (Math.random() > 0.5 ? change : -change);
-        uptc = Math.max(0, tempValue); // 确保不小于0
+        uptc = Math.max(0, tempValue); 
     }
+    luptc = uptc;
 
     // 更新fivu
-    lfivu = fivu;
     if (bzfivu === 1) {
         const change = getRandomChange();
         fivu = Number(fivu) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(fivu) + (Math.random() > 0.5 ? change : -change);
-        fivu = Math.max(0, tempValue); // 确保不小于0
+        fivu = Math.max(0, tempValue); 
     }
+    lfivu = fivu;
 
     // 更新ecc
-    lecc = ecc;
     if (bzecc === 1) {
         const change = getRandomChange();
         ecc = Number(ecc) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(ecc) + (Math.random() > 0.5 ? change : -change);
-        ecc = Math.max(0, tempValue); // 确保不小于0
+        ecc = Math.max(0, tempValue); 
     }
+    lecc = ecc;
 
     // 更新awm
-    lawm = awm;
     if (bzawm === 1) {
         const change = getRandomChange();
         awm = Number(awm) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(awm) + (Math.random() > 0.5 ? change : -change);
-        awm = Math.max(0, tempValue); // 确保不小于0
+        awm = Math.max(0, tempValue); 
     }
+    lawm = awm;
 
     // 更新 HSF
-    lhsf = hsf;
     if (bzhsf === 1) {
         const change = getRandomChange();
         hsf = Number(hsf) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(hsf) + (Math.random() > 0.5 ? change : -change);
-        hsf = Math.max(0, tempValue); // 确保不小于0
+        hsf = Math.max(0, tempValue); 
     }
+    lhsf = hsf;
 
 	// 更新 UVS
-	luvs = uvs;
     if (bzuvs === 1) {
         const change = getRandomChange();
         uvs = Number(uvs) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(uvs) + (Math.random() > 0.5 ? change : -change);
-        uvs = Math.max(0, tempValue); // 确保不小于0
+        uvs = Math.max(0, tempValue); 
     }
+	luvs = uvs;
 
     // 更新 ubn
-    lubn = ubn;
     if (bzubn === 1) {
         const change = getRandomChange();
         ubn = Number(ubn) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(ubn) + (Math.random() > 0.5 ? change : -change);
-        ubn = Math.max(0, tempValue); // 确保不小于0
+        ubn = Math.max(0, tempValue); 
     }
+    lubn = ubn;
 
     // 更新 forest
-    lforest = forest;
     if (bzforest === 1) {
         const change = getRandomChange();
         forest = Number(forest) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(forest) + (Math.random() > 0.5 ? change : -change);
-        forest = Math.max(0, tempValue); // 确保不小于0
+        forest = Math.max(0, tempValue); 
     }
+    lforest = forest;
 
     // 更新 cuo
-    lcuo = cuo;
     if (bzcuo === 1) {
         const change = getRandomChange();
         cuo = Number(cuo) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(cuo) + (Math.random() > 0.5 ? change : -change);
-        cuo = Math.max(0, tempValue); // 确保不小于0
+        cuo = Math.max(0, tempValue); 
     }
+    lcuo = cuo;
 
     // 更新 ogn
-    logn = ogn;
     if (bzogn === 1) {
         const change = getRandomChange();
         ogn = Number(ogn) + change;
     } else {
         const change = getRandomChange();
         const tempValue = Number(ogn) + (Math.random() > 0.5 ? change : -change);
-        ogn = Math.max(0, tempValue); // 确保不小于0
+        ogn = Math.max(0, tempValue); 
     }
+    logn = ogn;
+
     save_data();
     updateChart();
-    
 }
 
 function buychecknowprice(id)
