@@ -6,9 +6,9 @@ if(typeof(Storage)!=="undefined")
     			}
 
 				// 更改初始市值或修改公司 check标签
-				if(isNaN(Number(localStorage.check4)))
+				if(isNaN(Number(localStorage.check5)))
     			{
-    				localStorage.check4=0;
+    				localStorage.check5=0;
 					init_dtbs();
     			}
 
