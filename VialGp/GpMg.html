@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="NdcLogo4848.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vial 网站</title>
-    <link rel="stylesheet" type="text/css" href="../StyleFiles/homepage.css">
-    <script type="text/javascript" src="./UpdateGp/UpdateGp2.js"></script>
-    <script type="text/javascript" src="../MainScripts/InitGpWn.js"></script>
-    <script type="text/javascript" src="./UpdateGp/echarts.js"></script>
-    <nav>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="NdcLogo4848.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Vial 网站</title>
+        <link rel="stylesheet" type="text/css" href="../StyleFiles/homepage.css">
+        <script type="text/javascript" src="./UpdateGp/echarts.js"></script>
+        <script type="text/javascript" src="./UpdateGp/UpdateGp2.js"></script>
+       <nav>
         <div class="nav-container">
             <a href="#" class="logo">Vial 网站 - 虚拟股票</a>
             <ul class="nav-links">
@@ -20,7 +19,7 @@
             </ul>
         </div>
     </nav>
-    <style>
+        <style>
         #echarts{
             display: flex;
             flex-wrap:wrap;
@@ -60,9 +59,36 @@
             }
         }
     </style>
-</head>
-<body>
-    <div id="echarts">
+    </head>
+    <body>
+        <script type="text/javascript">
+            if(typeof(Storage)!=="undefined")
+            {
+                if(isNaN(Number(localStorage.money)))
+                {
+                    localStorage.money=0;
+                }
+                if(isNaN(Number(localStorage.nn)))
+                {
+                    localStorage.nn=1;
+                }
+                if(Number(localStorage.nn)==1&&Number(localStorage.money)==0)
+                {
+                    localStorage.name="新用户"+Math.floor(Math.random()*(100000-0+1));
+                    localStorage.nn=0;
+                }
+                let nnn=Number(localStorage.money);
+        	    document.addEventListener("DOMContentLoaded", function(){
+        	    });
+            }
+            else
+            {
+                document.addEventListener("DOMContentLoaded", function() {
+                    alert("您的设备可能不支持 localStorge，暂时无法正常使用 Vial网站。")
+                });
+            }
+        </script>
+        <div id="echarts">
         <div id="first"></div>
     <script>
         var updateInterval1,updateInterval;
@@ -88,15 +114,14 @@
     </script>
 </div>
 <p>&nbsp;</p>
-
-<section class="hero">
-<center><h2>卖出股票</h2></center>
-<p>&nbsp;</p>
 <center>
+    <section class="hero">
+        <center><h2>卖出股票</h2></center>
+        &nbsp;
+        &nbsp;
 <div>
     <input type="checkbox" id="one">第1个 &nbsp; &nbsp;<input type="checkbox" id="two">第2个 &nbsp; &nbsp;<input type="checkbox" id="three">第3个 &nbsp; &nbsp;
 </div>
-<p>&nbsp;</p>
 <script>
     if(localStorage.sel1=="0")
     {
@@ -125,9 +150,9 @@
                 const nowValue = (buy1 * nowPrice / localStorage.p1).toFixed(2);
                 const profit = (nowValue - buy1).toFixed(2); // 盈利/亏损
                 const confirmMsg = `确定卖出股票[${buycheckname(sel1)}]吗？\n` +
-                                  `购买金额：${buy1} Vial币\n` +
-                                  `当前市值：${nowValue} Vial币\n` +
-                                  `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Vial币`;
+                                  `购买金额：${buy1} Orgent币\n` +
+                                  `当前市值：${nowValue} Orgent币\n` +
+                                  `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Orgent币`;
                 if (!confirm(confirmMsg)) return;
                 localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
                 localStorage.sel1 = 0;
@@ -149,9 +174,9 @@
                 const profit = (nowValue - buy2).toFixed(2);
 
                 const confirmMsg = `确定卖出股票[${buycheckname(sel2)}]吗？\n` +
-                                  `购买金额：${buy2} Vial币\n` +
-                                  `当前市值：${nowValue} Vial币\n` +
-                                  `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Vial币`;
+                                  `购买金额：${buy2} Orgent币\n` +
+                                  `当前市值：${nowValue} Orgent币\n` +
+                                  `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Orgent币`;
                 if (!confirm(confirmMsg)) return;
 
                 localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
@@ -175,9 +200,9 @@
                 const profit = (nowValue - buy3).toFixed(2);
 
                 const confirmMsg = `确定卖出股票 [${buycheckname(sel3)}] 吗？\n` +
-                                  `购买金额：${buy3} Vial币\n` +
-                                  `当前市值：${nowValue} Vial币\n` +
-                                  `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Vial币`;
+                                  `购买金额：${buy3} Orgent币\n` +
+                                  `当前市值：${nowValue} Orgent币\n` +
+                                  `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Orgent币`;
                 if (!confirm(confirmMsg)) return;
 
                 localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
@@ -197,9 +222,14 @@
 </script>
 </center>
 <p>&nbsp;</p>
-    <center><button class="btn" id="sll" onclick="javascript:Sell()">卖出</button></center>
-
-        </section>
+    <center><button class="btn" id="sll" onclick="javascript:Sell()">卖出</button>
+    <p>&nbsp;</p>
+</section>
     </body>
 
 </html>
+
+
+
+
+
