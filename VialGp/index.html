@@ -115,11 +115,11 @@
                 var mmy=document.getElementById("money1").value;
                 if(iid<=0||iid>16)
                 {
-                    alert("这编号不是有效的哦。");
+                    alert("编号无效。");
                 }
                 else if(mmy<=0)
                 {
-                    alert("不能买负数币哦。");
+                    alert("无法购买。");
                 }
                 else if(mmy>Number(localStorage.money))
                 {
@@ -132,12 +132,12 @@
                     {
                         alert("不能连续购买同一股票。");
                     }
-                    else if(Number(localStorage.sel1)==0)
+                    else if(Number(localStorage.sel4)==0)
                     {
-                        localStorage.sel1=Number(iid);
-                        localStorage.buy1=Number(mmy);
-                        localStorage.p1=Number(buychecknowprice(iid));
-                        localStorage.d1=Number(Date.now());
+                        localStorage.sel4=Number(iid);
+                        localStorage.buy4=Number(mmy);
+                        localStorage.p4=Number(buychecknowprice(iid));
+                        localStorage.d4=Number(Date.now());
                         localStorage.money=Number(localStorage.money)-Number(mmy);
                         localStorage.nq=Number(iid);
                         alert("操作成功完成。");
@@ -177,3 +177,4 @@
 </body>
 
 </html>
+
