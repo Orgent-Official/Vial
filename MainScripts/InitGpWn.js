@@ -6,9 +6,9 @@ if(typeof(Storage)!=="undefined")
     			}
 
 				// 更改初始市值或修改公司 check标签
-				if(isNaN(Number(localStorage.check5)))
+				if(isNaN(Number(localStorage.check4)))
     			{
-    				localStorage.check5=0;
+    				localStorage.check4=0;
 					init_dtbs();
     			}
 
@@ -36,6 +36,22 @@ if(typeof(Storage)!=="undefined")
     			{
     				localStorage.buy3=0;
     			}
+                if(isNaN(Number(localStorage.sel4)))
+                {
+                    localStorage.sel4=0;
+                }
+                if(isNaN(Number(localStorage.buy4)))
+                {
+                    localStorage.buy4=0;
+                }
+                if(isNaN(Number(localStorage.p4)))
+                {
+                    localStorage.p4=0;
+                }
+                if(isNaN(Number(localStorage.d4)))
+                {
+                    localStorage.d4=0;
+                }
     			if(isNaN(Number(localStorage.nn)))
     			{
     				localStorage.nn=1;
