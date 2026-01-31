@@ -139,26 +139,26 @@
     function Sell() {
             let hasSold = false;
             if (document.getElementById("one").checked) {
-                const sel1 = localStorage.sel1;
-                const buy1 = Number(localStorage.buy1);
-                if (buy1 <= 0) {
+                const sel4 = localStorage.sel4;
+                const buy4 = Number(localStorage.buy4);
+                if (buy4 <= 0) {
                     alert("无法卖出第1个股票。");
                     return;
                 }
-                const nowPrice = buychecknowprice(sel1);
-                const pastPrice = buycheckpastprice(sel1);
-                const nowValue = (buy1 * nowPrice / localStorage.p1).toFixed(2);
-                const profit = (nowValue - buy1).toFixed(2); // 盈利/亏损
-                const confirmMsg = `确定卖出股票[${buycheckname(sel1)}]吗？\n` +
-                                  `购买金额：${buy1} Orgent币\n` +
+                const nowPrice = buychecknowprice(sel4);
+                const pastPrice = buycheckpastprice(sel4);
+                const nowValue = (buy4 * nowPrice / localStorage.p4).toFixed(2);
+                const profit = (nowValue - buy4).toFixed(2); // 盈利/亏损
+                const confirmMsg = `确定卖出股票[${buycheckname(sel4)}]吗？\n` +
+                                  `购买金额：${buy4} Orgent币\n` +
                                   `当前市值：${nowValue} Orgent币\n` +
                                   `${profit >= 0 ? '盈利' : '亏损'}：${Math.abs(profit)} Orgent币`;
                 if (!confirm(confirmMsg)) return;
                 localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
-                localStorage.sel1 = 0;
-                localStorage.buy1 = 0;
-                localStorage.p1=0;
-                localStorage.d1=0;
+                localStorage.sel4 = 0;
+                localStorage.buy4 = 0;
+                localStorage.p4=0;
+                localStorage.d4=0;
                 hasSold = true;
             }
             if (document.getElementById("two").checked) {
