@@ -6,12 +6,11 @@ if(typeof(Storage)!=="undefined")
     			}
 
 				// 更改初始市值或修改公司 check标签
-				if(isNaN(Number(localStorage.check4)))
+				if(isNaN(Number(localStorage.check7)))
     			{
-    				localStorage.check4=0;
+    				localStorage.check7=0;
 					init_dtbs();
     			}
-
     			if(isNaN(Number(localStorage.sel1)))
     			{
     				localStorage.sel1=0;
@@ -94,8 +93,8 @@ if(typeof(Storage)!=="undefined")
         	        document.getElementById("gplb").innerText = "Hi(碘化氢），"+localStorage.name+"。你还剩 " + nnn.toFixed(2) + " Vial币。快去支持你的虚拟公司吧。";
         	        document.getElementById("h1h1").innerText = "你好，"+localStorage.name+"。";
         	        document.getElementById("news").innerText = "1. Ognesson炸各虚拟公司被反击\n2.Vial网站上新2.0版本\n3.一秒化钉机改良无需换化钉液";
-        	        if(localStorage.sel1!="0")
-        	        	document.getElementById("gp1").innerText = "你购买了虚拟 "+buycheckname(localStorage.sel1)+ " 股票共"+localStorage.buy1+" Vial币。去看看走势怎么样了吧。";
+        	        if(localStorage.sel4!="0")
+        	        	document.getElementById("gp1").innerText = "你购买了虚拟 "+buycheckname(localStorage.sel4)+ " 股票共"+localStorage.buy4+" Vial币。去看看走势怎么样了吧。";
         	        if(localStorage.sel2!="0")
         	        	document.getElementById("gp2").innerText = "你购买了虚拟 "+buycheckname(localStorage.sel2)+ " 股票共"+localStorage.buy2+" Vial币。去看看走势怎么样了吧。";
         	        if(localStorage.sel3!="0")
