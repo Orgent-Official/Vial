@@ -1,17 +1,34 @@
-var llemon=900,lemon=900,bzlemon=0; // Lemon
-var lvial=1100,vial=1100,bzvial=0; // Vial
-var lutw=1500,utw=1500,bzutw=0; // Utw
-var lcwmm=100,cwmm=100,bzcwmm=0; // CWMM
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C', 'U'].includes(e.key)) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+var llemon=900,lemon=1000,bzlemon=0; // Lemon
+var lvial=1100,vial=1250,bzvial=0; // Vial
+var lutw=1500,utw=1450,bzutw=0; // Utw
+var lcwmm=100,cwmm=80,bzcwmm=0; // CWMM
 var luptc=100,uptc=100,bzuptc=0; // PTC
 var lfivu=10,fivu=10,bzfivu=0; // 5U
-var lecc=140,ecc=140,bzecc=0; // ECC
-var lawm=80,awm=80,bzawm=0; // AWM
+var lecc=140,ecc=120,bzecc=0; // ECC
+var lawm=80,awm=140,bzawm=0; // AWM
 var lhsf=40,hsf=40,bzhsf=0; // HSF
-var luvs=50,uvs=60,bzuvs=0; // UVS
-var lubn=50,ubn=50,bzubn=0; // Ubn
-var lforest=50,forest=50,bzforest=50; // FOREST
-var lcuo=200,cuo=200,bzcuo=0; // CuO
+var luvs=50,uvs=90,bzuvs=0; // UVS
+var lubn=50,ubn=25,bzubn=0; // Ubn
+var lforest=50,forest=20,bzforest=50; // FOREST
+var lcuo=200,cuo=150,bzcuo=0; // CuO
 var logn=30,ogn=30,bzogn=0; // Ognesson
+var lgc3=60,gc3=60,bzgc3=0; // GC3
+var luwls=50,uwls=50,bzuwls=50; // UwLS
 
 var chart;
 var updateInterval;
@@ -60,6 +77,12 @@ function init_dtbs()
     localStorage.logn = logn;
     localStorage.ogn = ogn;
     localStorage.bzogn = bzogn;
+    localStorage.lgc3 = lgc3;
+    localStorage.gc3 = gc3;
+    localStorage.bzgc3 = bzgc3;
+    localStorage.luwls = luwls;
+    localStorage.uwls = uwls;
+    localStorage.bzuwls = bzuwls;
 }
 
 function save_data()
@@ -106,6 +129,12 @@ function save_data()
     localStorage.logn = Number(logn);
     localStorage.ogn = Number(ogn);
     localStorage.bzogn = Number(bzogn);
+    localStorage.luwls = Number(luwls);
+    localStorage.uwls = Number(uwls);
+    localStorage.bzuwls = Number(bzuwls);
+    localStorage.lgc3 = Number(lgc3);
+    localStorage.gc3 = Number(gc3);
+    localStorage.bzgc3 = Number(bzgc3);
 }
 
 function load_data()
@@ -156,6 +185,12 @@ function load_data()
     lubn = Number(localStorage.lubn) || lubn;
     ubn = Number(localStorage.ubn) || ubn;
     bzubn = Number(localStorage.bzubn) || bzubn;
+    lgc3 = Number(localStorage.lgc3) || lgc3;
+    gc3 = Number(localStorage.gc3) || gc3;
+    bzgc3 = Number(localStorage.bzgc3) || bzgc3;
+    luwls = Number(localStorage.luwls) || luwls;
+    uwls = Number(localStorage.uwls) || uwls;
+    bzuwls = Number(localStorage.bzuwls) || bzuwls;
 }
 
 function update_all() {
@@ -318,6 +353,28 @@ function update_all() {
         const tempValue = Number(ogn) + (Math.random() > 0.5 ? change : -change);
         ogn = Math.max(0, tempValue); // 确保不小于0
     }
+
+    // 更新 uwls
+    luwls = uwls;
+    if (bzuwls === 1) {
+        const change = getRandomChange();
+        uwls = Number(uwls) + change;
+    } else {
+        const change = getRandomChange();
+        const tempValue = Number(uwls) + (Math.random() > 0.5 ? change : -change);
+        uwls = Math.max(0, tempValue); // 确保不小于0
+    }
+
+    // 更新 gc3
+    lgc3 = gc3;
+    if (bzgc3 === 1) {
+        const change = getRandomChange();
+        gc3 = Number(gc3) + change;
+    } else {
+        const change = getRandomChange();
+        const tempValue = Number(gc3) + (Math.random() > 0.5 ? change : -change);
+        gc3 = Math.max(0, tempValue); // 确保不小于0
+    }
     save_data();
     updateChart();
     
@@ -373,6 +430,12 @@ function buychecknowprice(id)
     case 14:
         return ogn;
         break;
+    case 15:
+        return gc3;
+        break;
+    case 16:
+        return uwls;
+        break;
 	}
 }
 
@@ -426,6 +489,12 @@ function buycheckpastprice(id)
     case 14:
         return logn;
         break;
+    case 15:
+        return lgc3;
+        break;
+    case 16:
+        return luwls;
+        break;
 	}
 }
 
@@ -478,6 +547,12 @@ function buycheckname(id)
     case 14:
         return "Ognesson";
         break;
+    case 15:
+        return "GC3";
+        break;
+    case 16:
+        return "UwLS";
+        break;
 	}
 
 }
@@ -491,7 +566,7 @@ function makeop()
             },
   		xAxis: {
     		type: 'category',
-    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'UVS', 'HSF', 'PTC', '5U', 'Lemon', 'ECC', 'Ubn', 'FOREST', 'CuO', 'Ognesson'],
+    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'UVS', 'HSF', 'PTC', '5U', 'Lemon', 'ECC', 'Ubn', 'FOREST', 'CuO', 'Og', 'GC3', 'UwLS'],
     		axisLabel: {
       			interval: 0,
       			rotate: 0, 
@@ -510,7 +585,7 @@ function makeop()
   		},
   		series: [
     		{
-      			data: [awm,utw,vial,cwmm,uvs,hsf,uptc,fivu,lemon,ecc,ubn,forest,cuo,ogn],
+      			data: [awm,utw,vial,cwmm,uvs,hsf,uptc,fivu,lemon,ecc,ubn,forest,cuo,ogn,gc3,uwls],
       			type: 'bar',
       			showBackground: true,
       			label: {
@@ -637,7 +712,8 @@ function btsheet()
                 { value: hsf, name: 'HSF' },
                 { value: ecc, name: 'ECC' },
                 { value: lemon, name: 'Lemon' },
-                { value: awm, name: 'AWM' }
+                { value: awm, name: 'AWM' },
+                { value: uwls, name: 'UwLS' }
             ]
             }
         ]
