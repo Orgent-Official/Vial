@@ -631,13 +631,13 @@ function makeop()
 
 function mygpp()
 {
-	var option = {
+    var option = {
             title: {
                 text: '我购买的股票'
             },
                 xAxis: {
                     interval: 0,
-                    data: [buycheckname(localStorage.sel1),buycheckname(localStorage.sel2),buycheckname(localStorage.sel3)],
+                    data: [buycheckname(localStorage.sel4),buycheckname(localStorage.sel2),buycheckname(localStorage.sel3)],
                     axisLabel: {
       interval: 0,
       rotate: 0, 
@@ -655,11 +655,11 @@ function mygpp()
                 series: [
                     {
                         type: 'bar',
-                        data: [localStorage.buy1,localStorage.buy2,localStorage.buy3]
+                        data: [localStorage.buy4,localStorage.buy2,localStorage.buy3]
                     },
                     {
                         type: 'bar',
-                        data: [(buychecknowprice(localStorage.sel1)/localStorage.p1*1.000*localStorage.buy1),(buychecknowprice(localStorage.sel2)/localStorage.p2*1.000*localStorage.buy2),(buychecknowprice(localStorage.sel3)/localStorage.p3*1.000*localStorage.buy3)]
+                        data: [(buychecknowprice(localStorage.sel4)/localStorage.p4*1.000*localStorage.buy4),(buychecknowprice(localStorage.sel2)/localStorage.p2*1.000*localStorage.buy2),(buychecknowprice(localStorage.sel3)/localStorage.p3*1.000*localStorage.buy3)]
                     }
                 ]  
         };
